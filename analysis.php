@@ -415,12 +415,12 @@ for ($i=0 ; $i<count($new_array) ; $i++){
 
 
 	foreach ($new_array as $state){
-		$bood=0;
+		$there_was=0;
 		foreach ($groups as $gr) {
 			if(strpos ($gr,$state) !== false)
-				$bood =1;
+				$there_was =1;
 		}
-		if($bood==0){
+		if($there_was==0){
 			array_push($final_for_search,$state);
 		}
 
