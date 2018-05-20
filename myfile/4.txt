@@ -1,0 +1,22 @@
+4 1 2 3 4
+5 - A + B + C D E
+A B 1
+A D 2
+A C 3
+A E 4
+B B 1
+B B 2
+B A 3
+B D 4
+C A 1
+C B 2
+C C 3
+C D 4
+D A 1
+D A 2
+D E 3
+D B 4
+E A 1
+E B 2
+E E 3
+E D 4
