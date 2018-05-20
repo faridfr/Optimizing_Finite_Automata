@@ -136,7 +136,7 @@ fclose($file);
 // =======================================================================================================
 // =========================================== www. FARIDFR .ir ==========================================
 // =======================================================================================================
-// ========================================== BEHINE SAZI START ==========================================
+// ========================================== Optimization START ==========================================
 // =======================================================================================================
 // =======================================================================================================
 
@@ -257,11 +257,11 @@ function findstk ($in1,$in2){
 
 	foreach ($alphabets as $char) {
 
-		$koja1 = $state_arrow [$in1][$char];
-		$koja2 = $state_arrow [$in2][$char];
+		$where1 = $state_arrow [$in1][$char];
+		$where2 = $state_arrow [$in2][$char];
 
 
-		if ( $streaked [$koja1][$koja2] == 1 &&  $koja1 != $koja2) {
+		if ( $streaked [$where1][$where2] == 1 &&  $where1 != $where2) {
 
 			$key=1;
 			break;
@@ -294,9 +294,9 @@ function counter () {
 
 /*echo counter();*/
 
-$biroon = 0;
+$out = 0;
 
-while ($biroon!=1){
+while ($out!=1){
 
 	$count = counter();
 	$temp = $count;
@@ -322,7 +322,7 @@ while ($biroon!=1){
 
 	if($count==$temp){
 
-		$biroon = 1;
+		$out = 1;
 	}
 
 }
@@ -406,11 +406,11 @@ for ($i=0 ; $i<count($new_array) ; $i++){
 
 		}
 	}
-	$nahaee = array();
+	$final_for_search = array();
 
 	foreach ($groups as $gr) {
 		// echo "<br>".$gr."<br>";
-		array_push($nahaee,$gr);
+		array_push($final_for_search,$gr);
 	}
 
 
@@ -421,30 +421,30 @@ for ($i=0 ; $i<count($new_array) ; $i++){
 				$bood =1;
 		}
 		if($bood==0){
-			array_push($nahaee,$state);
+			array_push($final_for_search,$state);
 		}
 
 	}
 
 
 	/*echo"<pre>";
-	print_r($nahaee);
+	print_r($final_for_search);
 	echo"</pre>";*/
 
 	$arrows = array();
 
-	foreach ($nahaee as $state) {
+	foreach ($final_for_search as $state) {
 
 		foreach ($alphabets as $char)
 		{
 
-			$peyda =0 ;
+			$finded =0 ;
 
-			foreach ($nahaee as $na)
+			foreach ($final_for_search as $na)
 			{
 				if(strpos ($na,$state_arrow[$state[0]][$char]) !==false )
 				{
-					$peyda = 1;
+					$finded = 1;
 					$arrows[$state][$char] = $na;
 				}
 			}
@@ -471,7 +471,7 @@ foreach ($states_situation as $ss) {
 
 
 
-foreach ($nahaee as $search ) {
+foreach ($final_for_search as $search ) {
 	if( strpos ($search , $start) !== false )
 	{
 		$final_start = $search;
@@ -482,7 +482,7 @@ foreach ($nahaee as $search ) {
 $i=0;
 $final_final = array();
 
-foreach ($nahaee as $search ) {
+foreach ($final_for_search as $search ) {
 
 	foreach ($final_states as $fs) {
 		if( strpos ($search , $fs) !== false )
@@ -508,22 +508,22 @@ foreach ($alphabets as $char) {
 
 	////////////////////////////////
 
-$output_line2 = count($nahaee)." ";
+$output_line2 = count($final_for_search)." ";
 $i=0;
 
-foreach ($nahaee as $na) {
+foreach ($final_for_search as $na) {
 
-	$pishvand = "";
+	$prefix = "";
 
-	if ($final_final[$i] == 1)   $pishvand = "+";
-	if ($final_start==$na)       $pishvand = "-";
-	if ($final_final[$i]==1 && $final_start==$na) $pishvand = "- +";
+	if ($final_final[$i] == 1)   $prefix = "+";
+	if ($final_start==$na)       $prefix = "-";
+	if ($final_final[$i]==1 && $final_start==$na) $prefix = "- +";
 
-	if (end($nahaee) !== $na){
+	if (end($final_for_search) !== $na){
 
 
-		if($pishvand!=""){
-			$output_line2 .= $pishvand." ".$na." ";
+		if($prefix!=""){
+			$output_line2 .= $prefix." ".$na." ";
 		}
 		else {
 			$output_line2 .= $na." ";
@@ -532,8 +532,8 @@ foreach ($nahaee as $na) {
 	}
 	else{
 
-		if($pishvand!=""){
-			$output_line2 .= $pishvand." ".$na;
+		if($prefix!=""){
+			$output_line2 .= $prefix." ".$na;
 		}
 		else {
 			$output_line2 .= $na;
@@ -550,7 +550,7 @@ fwrite($myFile,$output_line2."\r\n");
 	////////////////////////////////
 
 
-foreach ($nahaee as $state) {
+foreach ($final_for_search as $state) {
 
 	foreach ($alphabets as $char) {
 		$output_line = $state." ".$arrows[$state][$char]." ".$char;											
