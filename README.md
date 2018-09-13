@@ -2,7 +2,7 @@
 A website that can optimizing your Finite automata and draw it
 
 # Use it ( Persian & English )
-[(http://optia.ir)](http://optia.ir)
+[http://optia.ir](http://optia.ir)
 
 # Homepage
 ![Homepage](http://s8.picofile.com/file/8317585992/optimize1.png)
