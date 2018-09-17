@@ -1,0 +1,8 @@
+2 1 0
+3 DB + EC - A
+DB EC 1
+DB DB 0
+EC EC 1
+EC EC 0
+A DB 1
+A DB 0

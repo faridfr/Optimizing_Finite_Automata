@@ -39,13 +39,12 @@ if(isset($_GET['lang']))
 <head>
 	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1, maximum-scale=1">
 
-	<script src="source/jquery-2.0.3.min.js"></script>
-	<script src="source/cytoscape.min.js"></script>
-	<script src="source/dagre.min.js"></script>
-	<script src="source/cytoscape-dagre.js"></script>
+  <script src="source/jquery-2.0.3.min.js"></script>
+  <script src="source/cytoscape.min.js"></script>
+  <script src="source/dagre.min.js"></script>
+  <script src="source/cytoscape-dagre.js"></script>
   <link rel="stylesheet" href="source/css/font-awesome.css">
   <link rel="stylesheet" href="source/css/bootstrap.css">
-
   <link rel="stylesheet" href="source/css/customise.css">
 
   <?php 
@@ -284,7 +283,7 @@ if(isset($_GET['lang']))
             <div class="panel-heading" style="font-size:10px;"><?=FINAL_STATES?></div>
             <div class="panel-body">
               <?php echo "<pre style='direction:ltr; font-size:10px; color: red; height:160px; overflow-y:scroll;'>";
-              foreach ($nahaee as $na) {
+              foreach ($final_for_search as $na) {
                 echo $na."<br>"  ;
               }
               echo "</pre>";
@@ -303,7 +302,7 @@ if(isset($_GET['lang']))
               <?php echo "<pre style='direction:ltr; font-size:10px; color: red; height:160px; overflow-y:scroll;'>";
               echo $output_line1."<br>";
               echo $output_line2."<br>";
-              foreach ($nahaee as $state) {
+              foreach ($final_for_search as $state) {
 
                 foreach ($alphabets as $char) {
                   $output_line = $state." ".$arrows[$state][$char]." ".$char;                     
@@ -451,9 +450,8 @@ else {
 
 </div>
 
-
-<script src="source/js/bootstrap.min.js"></script>
-
+    <script src="source/js/bootstrap.min.js"></script>
+    
 
 </body>
 </html>

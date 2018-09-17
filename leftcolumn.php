@@ -2,6 +2,7 @@
 
 
 
+
 <script>
 
 	$(function(){
@@ -83,7 +84,7 @@
 				nodes: [
 				<?php 
 				$i=0;
-				foreach ($nahaee as $state) {
+				foreach ($final_for_search as $state) {
 					if ($state==$final_start) $start_color = "#00B16A";
 					else $start_color = "#F5F5F5";
 
@@ -96,7 +97,7 @@
 						$border = 0;
 					}
 					
-					if(end($nahaee) !== $state){
+					if(end($final_for_search) !== $state){
 						echo "{ data: { id: '$state' , bc : '$start_color' , border :'$border'  } },
 						";
 					}
@@ -109,7 +110,7 @@
 				],
 				edges: [
 				<?php
-				foreach ($nahaee as $state) {
+				foreach ($final_for_search as $state) {
 
 					foreach ($alphabets as $char) {
 						$koja = $arrows[$state][$char];
@@ -129,7 +130,7 @@
 
 /*
 			$("div#rightinfo").html(''+
-				<?php echo json_encode($nahaee) ?>
+				<?php echo json_encode($final_for_search) ?>
 				+' ')*/
 			</script>
 
@@ -204,7 +205,7 @@
 
 </style>
 <span class="load center-block" id="load" style="display:none; top:60%;" >
-	<img src="496.gif"  alt="loading" width="196"  class="img-responsive center-block">
+	<img src="source/496.gif"  alt="loading" width="196"  class="img-responsive center-block">
 </span>
 			<div style="overflow:hidden; display:none;" class="blink1"  id="cy">
 				
@@ -240,7 +241,7 @@
 
 			?>
 
-			<div id="draw" style="display:none;color:white; background-image:url(pixel_weave.png); margin-top:15px; margin-bottom:15px;">
+			<div id="draw" style="display:none;color:white; background-image:url(source/css/pixel_weave.png); margin-top:15px; margin-bottom:15px;">
 				<script src="source/fsm.js"></script>
 				<script>
 
@@ -286,12 +287,12 @@
 
 					<div class="col-lg-12">
 						
-						<div class="alert alert-warning"><i class="fa fa-user-secret" aria-hidden="true"></i> <?=COMMING_SOON?> ... </div>
-						<div class="alert alert-danger"><br>
+						<!-- <div class="alert alert-warning"><i class="fa fa-user-secret" aria-hidden="true"></i> <?=COMMING_SOON?> ... </div> -->
+						<!-- <div class="alert alert-danger"><br>
 
 							<i class="fa fa-info-circle" aria-hidden="true"></i> <?=CMTEXT?> 
 
-							<br><br></div>
+							<br><br></div> -->
 
 							<div class="alert alert-info">
 								<i class="fa fa-dwonload" aria-hidden="true"></i>  <?=DONTHAVEFILE?> : <br><hr>
